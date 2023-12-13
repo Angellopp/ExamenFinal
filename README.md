@@ -194,6 +194,7 @@ Ahora al ejecutar el comando `bunlde exec guard` obtenemos las pruebas pendiente
 
 ### Paso 2: Hacemos pasar las pruebas
 
+Ahora vamos a implementar cada prueba
 
 
 
