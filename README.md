@@ -34,6 +34,14 @@ end
 
 Validamos que el nombre solo debe contener letras y además que el nombre tenga entre 1 y 10 caractere y en caso no cumple se agrega un mensaje de error.
 
+Podemos comprobar esto por medio de rails console.
+
+![Alt text](image-6.png)
+
+Y al comprobarlo obtenemos:
+
+![Alt text](image-7.png)
+
 3.	Recuerda, los filtros nos ayudan a verificar si ciertas condiciones se cumplen antes de permitir que se ejecute una acción del controlador. Para el modelo de User, digamos que queremos verificar si @user era administrador de todos los métodos en AdminController. Completa el método before_filter:check_admin a continuación que verifica si el campo de administrador en @user es verdadero. De lo contrario, redirija a la página admin_login con un mensaje que indica acceso restringido.
 ```ruby
 class AdminController < ApplicationController
@@ -135,7 +143,7 @@ Modificamos de la siguiente manera la vista ya creada `search_tmdb.html.erb`:
 <%# Part 5 here %>
 
 <div class="search-container">
-<%= form_tag search_tmdb_path, method: :post, id: "tmdb_form" do %>
+<%= form_tag search_tmdb_path, method: :get, id: "tmdb_form" do %>
     <label for="searchMovieName">Movie Name</label>
     <%= text_field_tag 'title', nil, class: "form-control", id: "movie_title_field", placeholder: "Manhunter"%> 
     <label for="searchReleaseDateField">Release Year</label>
@@ -158,7 +166,7 @@ Modificamos de la siguiente manera la vista ya creada `search_tmdb.html.erb`:
 </div>
 ```
 
-En `<%= form_tag search_tmdb_path, method: :post, id: "tmdb_form" do %>` hemos agregado el método ``:get`` al ``form_tag `` para indicar que la solicitud será de tipo ``POST``. Tambien le agregamos un ``id`` al formulario.
+En `<%= form_tag search_tmdb_path, method: :get, id: "tmdb_form" do %>` hemos agregado el método ``:get`` al ``form_tag `` para indicar que la solicitud será de tipo ``GET`` para obetner informacion. Tambien le agregamos un ``id`` al formulario.
 
 En `<%= link_to 'Volver', movies_path, class: 'btn btn-primary mt-3' %>` hemos agregado el botón "Volver" usando el helper ``link_to``.
 
@@ -173,5 +181,14 @@ Ahora procedemos a modificar nuestro `index.html.erb` para generar un boton que 
   </div>
 ```
 
+Tambien modificamos las routes: `get '/search_tmdb', to: 'movies#search_tmdb`
 
-Una vez creada la vista, procedemos a modificar el controlador `movies_controller.rb`:
+Una vez creada la vista, procedemos a modificar el controlador `movies_controller.rb` agregando el metodo `search_tmdb`y podemos obtener la vista daday tambien con los botones:
+
+![Alt text](image-9.png)
+
+
+
+
+
+
