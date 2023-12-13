@@ -188,6 +188,12 @@ Una vez creada la vista, procedemos a modificar el controlador `movies_controlle
 ![Alt text](image-9.png)
 
 
+Ahora al ejecutar el comando `bunlde exec guard` obtenemos las pruebas pendientes del archivo que hemos creado ``movies_controller_spec.rb``:
+
+![Alt text](image-10.png)
+
+### Paso 2: Hacemos pasar las pruebas
+
 
 
 
